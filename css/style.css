@@ -1,0 +1,171 @@
+
+/* ===================================
+   W3A - ADVANCED CSS SELECTORS
+   =================================== */
+
+/* General styling */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f0;
+    color: #273b32;
+}
+
+/* 1. ID SELECTOR (#) */
+
+#site-header {
+    background: linear-gradient(135deg, #173b32, #2c6e49);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+#lion {
+    border-top: 5px solid #c99b42;
+}
+
+#elephant {
+    border-top: 5px solid #7c8b92;
+}
+
+#giraffe {
+    border-top: 5px solid #ba8552;
+}
+
+/* 2. CLASS SELECTOR (.) */
+
+.welcome-message {
+    font-size: 18px;
+    color: #e2f3e6;
+    max-width: 650px;
+    margin: 15px auto 0;
+    line-height: 1.7;
+}
+
+.animal-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.animal-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.animal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+/* 3. DESCENDANT SELECTOR (space) */
+
+/* Selects all images inside animal cards */
+
+.animal-card img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Selects paragraphs anywhere inside animal cards */
+
+.animal-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #536459;
+}
+
+/* 4. CHILD SELECTOR (>) */
+
+/* Selects only direct h3 children of articles */
+
+.animal-card > h3 {
+    font-size: 24px;
+    color: #215c40;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+/* Selects direct article children of the container */
+
+.animal-container > article {
+    min-width: 0;
+}
+
+/* 5. ADJACENT SIBLING SELECTOR (+) */
+
+/* Selects the paragraph immediately after an image */
+
+.animal-card img + p {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #dce9dd;
+}
+
+/* Additional layout styling */
+
+main {
+    max-width: 1250px;
+    margin: 45px auto;
+    padding: 0 25px;
+}
+
+main > h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #204b37;
+    margin-bottom: 35px;
+}
+
+footer {
+    background: #173b32;
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+/* making each article take up the same amount of space all on 1 row that goes across the screen instead of having the articles stack on top of each other*/
+.animal-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .animal-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .animal-container {
+        grid-template-columns: 1fr;
+    }
+
+    #site-header {
+        padding: 40px 15px;
+    }
+
+    main {
+        padding: 0 15px;
+    }
+
+    main > h2 {
+        font-size: 24px;
+    }
+}
